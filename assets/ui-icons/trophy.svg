@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <defs>
+    <linearGradient id="trophy-bowl" x1="6.6" y1="4.4" x2="16.8" y2="14.2" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe27a"/>
+      <stop offset="0.48" stop-color="#f0c040"/>
+      <stop offset="1" stop-color="#c48e1c"/>
+    </linearGradient>
+    <linearGradient id="trophy-metal" x1="7" y1="5.2" x2="17.4" y2="11" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f3c44a"/>
+      <stop offset="1" stop-color="#d4a028"/>
+    </linearGradient>
+    <linearGradient id="trophy-base" x1="6.6" y1="17.4" x2="17.4" y2="20.6" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d4aa48"/>
+      <stop offset="1" stop-color="#8f6c24"/>
+    </linearGradient>
+  </defs>
+  <path d="M7.2 5.55 C3.75 5.4 3.15 9.95 5.75 10.95 C6.5 11.25 7.2 10.4 7.2 9.55 V8.25 H6.5 C5.4 8.25 5.25 6.85 6.4 6.4 C6.75 6.24 7.2 6.15 7.2 5.55 Z" fill="url(#trophy-metal)" stroke="#e8c878" stroke-width="0.5" stroke-linejoin="round"/>
+  <path d="M16.8 5.55 C20.25 5.4 20.85 9.95 18.25 10.95 C17.5 11.25 16.8 10.4 16.8 9.55 V8.25 H17.5 C18.6 8.25 18.75 6.85 17.6 6.4 C17.25 6.24 16.8 6.15 16.8 5.55 Z" fill="url(#trophy-metal)" stroke="#e8c878" stroke-width="0.5" stroke-linejoin="round"/>
+  <path d="M7.25 4.45 H16.75 C17.15 4.45 17.4 4.72 17.4 5.12 V6.2 C17.4 10.55 15.1 14.05 12 14.05 C8.9 14.05 6.6 10.55 6.6 6.2 V5.12 C6.6 4.72 6.85 4.45 7.25 4.45 Z" fill="url(#trophy-bowl)" stroke="#e8c878" stroke-width="0.55" stroke-linejoin="round"/>
+  <ellipse cx="12" cy="5.28" rx="4.2" ry="0.82" fill="#c99422" stroke="#e8c878" stroke-width="0.28"/>
+  <path d="M8.2 6.35 C8.05 9 9.55 12 12 12.85 C10.15 11.45 8.75 9.15 8.65 6.7 Z" fill="#fff3b0" opacity="0.55"/>
+  <path d="M7.2 8.2 C8.45 8.52 10.15 8.72 12 8.72 C13.85 8.72 15.55 8.52 16.8 8.2" fill="none" stroke="#a88434" stroke-width="0.4" stroke-linecap="round"/>
+  <path d="M10.75 14.05 H13.25 L13 16.55 H11 Z" fill="#c9a86c" stroke="#e8c878" stroke-width="0.45" stroke-linejoin="round"/>
+  <rect x="9.2" y="16.4" width="5.6" height="1.15" rx="0.35" fill="#d4b05a" stroke="#e8c878" stroke-width="0.45"/>
+  <path d="M7.35 17.5 H16.65 C17.2 17.5 17.55 17.88 17.55 18.38 V19.55 C17.55 20.12 17.08 20.55 16.5 20.55 H7.5 C6.92 20.55 6.45 20.12 6.45 19.55 V18.38 C6.45 17.88 6.8 17.5 7.35 17.5 Z" fill="url(#trophy-base)" stroke="#e8c878" stroke-width="0.5" stroke-linejoin="round"/>
+</svg>
