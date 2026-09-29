@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ברכות · פרק ראשון — מנח בכיסתיה</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="stylesheet" href="style.css?v=20260929b">
+</head>
+<body class="chapter-photo-active chapter-photo-maimati">
+    <div class="chapter-photo-accents" aria-hidden="true">
+        <img class="accent-moon" src="assets/chapters/maimati/moon-crescent.png" alt="">
+        <img class="accent-window accent-fade-side" src="assets/chapters/maimati/window-night.png" alt="">
+        <img class="accent-candle accent-fade-side-left" src="assets/chapters/maimati/candle-night.png" alt="">
+        <img class="accent-siddur accent-fade-side" src="assets/chapters/maimati/siddur-book.png" alt="">
+        <img class="accent-bed accent-fade-bottom" src="assets/chapters/maimati/bed-night.png" alt="">
+        <img class="accent-shema accent-fade-bottom" src="assets/chapters/maimati/shema-prayer.png" alt="">
+    </div>
+    <div id="game-container" class="parchment-bg">
+        <div id="quiz-view" class="view-section">
+            <div id="answer-feedback-layer" aria-live="polite" aria-hidden="true"></div>
+            <div id="coin-fx-layer" aria-hidden="true"></div>
+            <div id="surprise-balloon-layer" class="surprise-balloon-layer" aria-hidden="true"></div>
+            <div id="surprise-reveal-toast" class="surprise-reveal-toast" role="status" aria-live="polite" hidden></div>
+            <div class="quiz-top-bar">
+                <button type="button" id="quiz-back-btn" class="menu-btn back-btn quiz-back-btn">⬅️ חזור לתפריט</button>
+            </div>
+            <div class="quiz-header">
+                <p id="quiz-subtitle" class="quiz-subtitle"></p>
+                <div id="vs-race-track" class="vs-race-track" hidden aria-label="מסלול התקדמות">
+                    <div class="vs-race-names-row">
+                        <span id="vs-race-user-name" class="vs-race-player-name vs-race-name-user"></span>
+                        <span id="vs-race-cpu-name" class="vs-race-player-name vs-race-name-cpu"></span>
+                    </div>
+                    <div id="vs-race-board" class="vs-race-board">
+                        <div id="vs-race-markers" class="vs-race-markers"></div>
+                        <div id="vs-race-token-user" class="vs-race-token vs-race-token-user" aria-hidden="true"></div>
+                        <div id="vs-race-token-cpu" class="vs-race-token vs-race-token-cpu" aria-hidden="true"></div>
+                    </div>
+                </div>
+                <div id="game-stats" class="stats-bar">
+                    <div class="stat-chip stat-coins">
+                        <div class="coin-bag-wrap" id="coin-bag-display" aria-hidden="true">
+                            <img src="assets/coin-bag.png?v=20" alt="" class="coin-bag-img" decoding="async">
+                        </div>
+                        <span class="stat-body">
+                            <span class="stat-value" id="coin-count">0</span>
+                            <span class="stat-label">מטבעות</span>
+                        </span>
+                    </div>
+                    <div class="stat-chip stat-streak">
+                        <span class="stat-icon" aria-hidden="true"><img src="assets/ui-icons/streak-fire.png?v=1" alt="" class="stat-icon-img" decoding="async"></span>
+                        <span class="stat-body">
+                            <span class="stat-value" id="streak-count">0</span>
+                            <span class="stat-label">רצף</span>
+                        </span>
+                    </div>
+                    <div class="stat-chip stat-progress">
+                        <span class="stat-icon" aria-hidden="true"><img src="assets/ui-icons/question-scroll.png?v=1" alt="" class="stat-icon-img" decoding="async"></span>
+                        <span class="stat-body">
+                            <span class="stat-value" id="quiz-progress">—</span>
+                            <span class="stat-label">שאלה</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div id="quiz-timer-clock" class="alarm-clock" aria-label="טיימר שאלה">
+                <svg class="alarm-svg" viewBox="0 0 140 155" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="alarm-metal" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" class="alarm-metal-stop-top"/>
+                            <stop offset="50%" class="alarm-metal-stop-mid"/>
+                            <stop offset="100%" class="alarm-metal-stop-bot"/>
+                        </linearGradient>
+                        <linearGradient id="alarm-bell-shine" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" class="alarm-metal-stop-top"/>
+                            <stop offset="100%" class="alarm-metal-stop-bot"/>
+                        </linearGradient>
+                        <radialGradient id="alarm-face-glow" cx="40%" cy="35%" r="70%">
+                            <stop offset="0%" stop-color="#fffdf8"/>
+                            <stop offset="55%" stop-color="#f9f1de"/>
+                            <stop offset="100%" stop-color="#e8dcc0"/>
+                        </radialGradient>
+                        <linearGradient id="alarm-ice-frost" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#f5fdff" stop-opacity="0.92"/>
+                            <stop offset="45%" stop-color="#c2ecfb" stop-opacity="0.55"/>
+                            <stop offset="100%" stop-color="#8ed4ef" stop-opacity="0.35"/>
+                        </linearGradient>
+                        <linearGradient id="alarm-ice-shine" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+                            <stop offset="100%" stop-color="#a8e4f8" stop-opacity="0.2"/>
+                        </linearGradient>
+                        <filter id="alarm-drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#3d250c" flood-opacity="0.24"/>
+                        </filter>
+                    </defs>
+
+                    <ellipse cx="70" cy="149" rx="30" ry="4" fill="rgba(61,37,12,0.16)"/>
+
+                    <path class="alarm-foot-svg alarm-foot-left" d="M50 136 L44 150 L57 150 L53 136 Z"/>
+                    <path class="alarm-foot-svg alarm-foot-right" d="M90 136 L86 150 L99 150 L95 136 Z"/>
+
+                    <circle class="alarm-body-ring" cx="70" cy="94" r="50" fill="url(#alarm-metal)" stroke="#4a321a" stroke-width="1.8" filter="url(#alarm-drop-shadow)"/>
+                    <circle cx="70" cy="94" r="46" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.9"/>
+
+                    <circle id="alarm-progress-track" cx="70" cy="94" r="41" fill="none" stroke="rgba(61,37,12,0.13)" stroke-width="4.5"/>
+                    <circle id="alarm-progress-ring" cx="70" cy="94" r="41" fill="none" class="alarm-progress-ring" stroke-width="4.5" stroke-linecap="round" transform="rotate(-90 70 94)"/>
+
+                    <circle cx="70" cy="94" r="35" fill="url(#alarm-face-glow)" stroke="#a88434" stroke-width="1.4"/>
+                    <ellipse cx="58" cy="82" rx="13" ry="9" fill="rgba(255,255,255,0.3)"/>
+
+                    <rect class="alarm-top-bar" x="46" y="24" width="48" height="6" rx="3" fill="#4a321a"/>
+                    <circle cx="70" cy="27" r="3" fill="#3d250c"/>
+
+                    <g class="alarm-bell-group alarm-bell-left">
+                        <path d="M26 32 C26 16 42 8 58 32 C58 36 42 38 26 36 Z" fill="url(#alarm-bell-shine)" stroke="#4a321a" stroke-width="1.3" stroke-linejoin="round"/>
+                        <ellipse cx="42" cy="32" rx="16" ry="5" fill="url(#alarm-metal)" stroke="#4a321a" stroke-width="1.2"/>
+                        <line x1="42" y1="32" x2="42" y2="46" stroke="#4a321a" stroke-width="1.6" stroke-linecap="round"/>
+                        <circle cx="42" cy="48" r="2.6" fill="#3d250c"/>
+                    </g>
+                    <g class="alarm-bell-group alarm-bell-right">
+                        <path d="M82 32 C82 16 98 8 114 32 C114 36 98 38 82 36 Z" fill="url(#alarm-bell-shine)" stroke="#4a321a" stroke-width="1.3" stroke-linejoin="round"/>
+                        <ellipse cx="98" cy="32" rx="16" ry="5" fill="url(#alarm-metal)" stroke="#4a321a" stroke-width="1.2"/>
+                        <line x1="98" y1="32" x2="98" y2="46" stroke="#4a321a" stroke-width="1.6" stroke-linecap="round"/>
+                        <circle cx="98" cy="48" r="2.6" fill="#3d250c"/>
+                    </g>
+
+                    <g class="alarm-hammer-svg">
+                        <rect x="68" y="30" width="4" height="16" rx="1.5" fill="#4a321a"/>
+                        <circle cx="70" cy="48" r="4.2" fill="#5c1414" stroke="#4a321a" stroke-width="1.2"/>
+                    </g>
+
+                    <g class="alarm-ice-overlay">
+                        <circle cx="70" cy="94" r="50" fill="url(#alarm-ice-frost)"/>
+                        <ellipse cx="58" cy="78" rx="18" ry="12" fill="url(#alarm-ice-shine)"/>
+                        <ellipse cx="88" cy="100" rx="12" ry="8" fill="rgba(255,255,255,0.45)"/>
+                        <path d="M38 48 L40 58 L42 48 L44 60 L46 47" fill="none" stroke="#d8f4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M94 46 L96 57 L98 45 L100 59 L102 47" fill="none" stroke="#d8f4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M52 128 L54 140 L56 129 L58 142 L60 130" fill="#c8ecff" stroke="#7eb8d4" stroke-width="0.8" stroke-linejoin="round"/>
+                        <path d="M80 128 L82 138 L84 127 L86 141 L88 129" fill="#c8ecff" stroke="#7eb8d4" stroke-width="0.8" stroke-linejoin="round"/>
+                        <circle cx="48" cy="70" r="2" fill="#ffffff" opacity="0.9"/>
+                        <circle cx="92" cy="88" r="1.6" fill="#ffffff" opacity="0.85"/>
+                        <circle cx="65" cy="108" r="1.4" fill="#ffffff" opacity="0.8"/>
+                    </g>
+                </svg>
+                <span id="quiz-timer" class="alarm-time">--</span>
+            </div>
+            <div class="quiz-content-panel">
+                <h2 id="question-text">שאלה תופיע כאן...</h2>
+                <div id="answers-container"></div>
+            </div>
+            <div id="vs-opponent-status" class="vs-opponent-status" hidden aria-live="polite"></div>
+            <div id="quiz-tools" class="quiz-tools">
+                <button type="button" class="quiz-tool-btn quiz-tool-btn-clock" data-tool="time" title="הקפאת זמן – השעון נקפא ל-5 שניות (3 מטבעות)" aria-label="הקפאת זמן (3 מטבעות)">
+                    <svg class="quiz-tool-clock-svg" viewBox="0 0 140 155" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="tool-ice-body" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#d8f4ff"/>
+                                <stop offset="100%" stop-color="#5eb0d4"/>
+                            </linearGradient>
+                            <linearGradient id="tool-ice-face" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f0fbff"/>
+                                <stop offset="100%" stop-color="#a8dff0"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="70" cy="94" r="50" fill="url(#tool-ice-body)" stroke="#3a8aa8" stroke-width="2"/>
+                        <circle cx="70" cy="94" r="35" fill="url(#tool-ice-face)" stroke="#6eb8d4" stroke-width="1.4"/>
+                        <ellipse cx="58" cy="82" rx="12" ry="8" fill="rgba(255,255,255,0.55)"/>
+                        <rect x="46" y="24" width="48" height="6" rx="3" fill="#3a8aa8"/>
+                        <path d="M26 32 C26 16 42 8 58 32 C58 36 42 38 26 36 Z" fill="url(#tool-ice-body)" stroke="#3a8aa8" stroke-width="1.3"/>
+                        <path d="M82 32 C82 16 98 8 114 32 C114 36 98 38 82 36 Z" fill="url(#tool-ice-body)" stroke="#3a8aa8" stroke-width="1.3"/>
+                        <path d="M38 48 L40 58 L42 48 L44 60 L46 47" fill="none" stroke="#e8f8ff" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M94 46 L96 57 L98 45 L100 59 L102 47" fill="none" stroke="#e8f8ff" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M52 128 L54 140 L56 129 L58 142 L60 130" fill="#c8ecff" stroke="#7eb8d4" stroke-width="0.8"/>
+                        <path d="M80 128 L82 138 L84 127 L86 141 L88 129" fill="#c8ecff" stroke="#7eb8d4" stroke-width="0.8"/>
+                        <line x1="70" y1="94" x2="70" y2="72" stroke="#2a7a9e" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+                        <line x1="70" y1="94" x2="86" y2="94" stroke="#2a7a9e" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                        <circle cx="48" cy="70" r="2" fill="#ffffff"/>
+                        <circle cx="92" cy="88" r="1.6" fill="#ffffff"/>
+                    </svg>
+                </button>
+                <button type="button" class="quiz-tool-btn quiz-tool-btn-skip" data-tool="skip" title="דלג לשאלה הבאה (5 מטבעות)" aria-label="דלג (5 מטבעות)"><span class="quiz-tool-icon quiz-tool-icon-skip" aria-hidden="true"></span></button>
+                <button type="button" class="quiz-tool-btn quiz-tool-btn-reduce" data-tool="reduce" title="צמצום לשתי תשובות (10 מטבעות)" aria-label="צמצום (10 מטבעות)"><span class="quiz-tool-icon quiz-tool-icon-reduce" aria-hidden="true"></span></button>
+                <button type="button" class="quiz-tool-btn quiz-tool-btn-hint" data-tool="hint" title="רמז – חשיפת תשובה נכונה (15 מטבעות)" aria-label="רמז (15 מטבעות)"><span class="quiz-tool-icon quiz-tool-icon-hint" aria-hidden="true"></span></button>
+                <button type="button" class="quiz-tool-btn quiz-tool-btn-shield" data-tool="shield" title="מגן על הרצף בטעות (20 מטבעות)" aria-label="מגן (20 מטבעות)"><span class="quiz-tool-icon quiz-tool-icon-shield" aria-hidden="true"></span></button>
+            </div>
+        </div>
+    </div>
+    <footer class="app-copyright" aria-label="זכויות יוצרים">
+        <span class="copyright-symbol" aria-hidden="true">©</span> כל הזכויות שמורות ליוצר עורך והמגיש יאיר בלסן
+    </footer>
+    <div id="solo-summary-overlay" class="solo-summary-overlay" aria-hidden="true" hidden>
+        <div class="solo-summary-popup">
+            <h2 class="solo-summary-title">סיכום ההתקדמות</h2>
+            <p class="solo-summary-subtitle">סיימת את מאגר השאלות!</p>
+            <div class="solo-summary-stats">
+                <div class="solo-summary-stat">
+                    <span class="solo-summary-stat-value" id="solo-summary-total">0</span>
+                    <span class="solo-summary-stat-label">שאלות במאגר</span>
+                </div>
+                <div class="solo-summary-stat solo-summary-stat-correct">
+                    <span class="solo-summary-stat-value" id="solo-summary-correct">0</span>
+                    <span class="solo-summary-stat-label">נכון ✓</span>
+                </div>
+                <div class="solo-summary-stat solo-summary-stat-wrong">
+                    <span class="solo-summary-stat-value" id="solo-summary-wrong">0</span>
+                    <span class="solo-summary-stat-label">לא נכון ✗</span>
+                </div>
+            </div>
+            <div class="solo-summary-progress" aria-hidden="true">
+                <div id="solo-summary-bar-correct" class="solo-summary-progress-correct"></div>
+                <div id="solo-summary-bar-wrong" class="solo-summary-progress-wrong"></div>
+            </div>
+            <p class="solo-summary-accuracy">דיוק: <strong id="solo-summary-accuracy">—</strong></p>
+            <button type="button" id="summary-back" class="solo-summary-exam-btn">חזור לתפריט</button>
+        </div>
+    </div>
+    <audio id="quiz-music" src="audio/01-the-last.mp3" loop preload="auto"></audio>
+    <script src="berachot-perek1.js"></script>
+    <script src="play-quiz.js"></script>
+</body>
+</html>
