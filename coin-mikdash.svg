@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" aria-hidden="true">
+  <defs>
+    <radialGradient id="coinGold" cx="32%" cy="28%" r="72%">
+      <stop offset="0%" stop-color="#fff4a8"/>
+      <stop offset="25%" stop-color="#ffe566"/>
+      <stop offset="55%" stop-color="#d4af37"/>
+      <stop offset="85%" stop-color="#a88434"/>
+    </radialGradient>
+  </defs>
+  <circle cx="64" cy="64" r="58" fill="url(#coinGold)" stroke="#8b6914" stroke-width="4"/>
+  <circle cx="64" cy="64" r="46" fill="none" stroke="#8b6914" stroke-width="2.2" opacity="0.42"/>
+  <g transform="translate(32.64 22.28) scale(1.12)" fill="#8b6914">
+    <rect x="4" y="60" width="48" height="2.5"/>
+    <rect x="5" y="57" width="46" height="2.5"/>
+    <rect x="6" y="54" width="44" height="2.5"/>
+    <path fill-rule="evenodd" d="M8 29 H48 V56 H8 Z M24 41 H32 V53 H24 Z"/>
+    <rect x="6" y="25" width="44" height="4"/>
+    <rect x="8.5" y="25" width="5" height="4"/>
+    <rect x="14.5" y="25" width="5" height="4"/>
+    <rect x="36.5" y="25" width="5" height="4"/>
+    <rect x="42.5" y="25" width="5" height="4"/>
+    <path fill-rule="evenodd" d="M6 20 H50 V25 H6 Z
+      M8.2 21.4 h1.6 v2.2 h-1.6 Z M11.4 21.4 h1.6 v2.2 h-1.6 Z M14.6 21.4 h1.6 v2.2 h-1.6 Z
+      M17.8 21.4 h1.6 v2.2 h-1.6 Z M21 21.4 h1.6 v2.2 h-1.6 Z M24.2 21.4 h1.6 v2.2 h-1.6 Z
+      M27.4 21.4 h1.6 v2.2 h-1.6 Z M30.6 21.4 h1.6 v2.2 h-1.6 Z M33.8 21.4 h1.6 v2.2 h-1.6 Z
+      M37 21.4 h1.6 v2.2 h-1.6 Z M40.2 21.4 h1.6 v2.2 h-1.6 Z M43.4 21.4 h1.6 v2.2 h-1.6 Z M46.6 21.4 h1.6 v2.2 h-1.6 Z"/>
+    <rect x="5" y="18" width="46" height="2"/>
+    <polygon points="8,18 12,18 10,12"/>
+    <polygon points="14,18 18,18 16,12"/>
+    <polygon points="20,18 24,18 22,12"/>
+    <polygon points="26,18 30,18 28,12"/>
+    <polygon points="32,18 36,18 34,12"/>
+    <polygon points="38,18 42,18 40,12"/>
+    <polygon points="44,18 48,18 46,12"/>
+    <rect x="10" y="31" width="2.8" height="25"/>
+    <rect x="15" y="31" width="2.8" height="25"/>
+    <rect x="38.2" y="31" width="2.8" height="25"/>
+    <rect x="43.2" y="31" width="2.8" height="25"/>
+    <polygon points="28,21.5 25,27.2 31,27.2"/>
+    <polygon points="28,31.5 25,27.2 31,27.2"/>
+  </g>
+</svg>
