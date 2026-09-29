@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 96" aria-hidden="true">
+  <defs>
+    <linearGradient id="brainFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8d3434"/>
+      <stop offset="100%" stop-color="#5c1414"/>
+    </linearGradient>
+  </defs>
+  <path d="M100 30l3.2 12.2 12.6 3.4-12.6 3.4L100 66l-3.2-16.9L84.2 45.6l12.6-3.4z" fill="#e8c56a" stroke="#8b6914" stroke-width="1.2" stroke-linejoin="round"/>
+  <g>
+    <path fill="url(#brainFill)" stroke="#c9a227" stroke-width="2.2" d="M34 18c12-12 34-10 42 4 9-6 24-2 28 10 9 2 15 13 11 23-3 12-12 19-22 21-2 9-14 16-28 14-16 2-30-8-33-19-9-2-16-13-12-24 3-9 12-16 14-29z"/>
+    <path fill="none" stroke="#f3d98a" stroke-width="1.6" stroke-linecap="round" d="M30 34c8 6 14 6 18 14M46 26c8 10 8 18 4 30M62 30c8 8 8 18 2 28"/>
+  </g>
+  <g transform="translate(200 0) scale(-1 1)">
+    <path fill="url(#brainFill)" stroke="#c9a227" stroke-width="2.2" d="M34 18c12-12 34-10 42 4 9-6 24-2 28 10 9 2 15 13 11 23-3 12-12 19-22 21-2 9-14 16-28 14-16 2-30-8-33-19-9-2-16-13-12-24 3-9 12-16 14-29z"/>
+    <path fill="none" stroke="#f3d98a" stroke-width="1.6" stroke-linecap="round" d="M30 34c8 6 14 6 18 14M46 26c8 10 8 18 4 30M62 30c8 8 8 18 2 28"/>
+  </g>
+</svg>
