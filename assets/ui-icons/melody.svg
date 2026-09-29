@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="note-gold" x1="16" y1="8" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe27a"/>
+      <stop offset="1" stop-color="#c48e1c"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="22" cy="46" rx="10" ry="7.2" fill="url(#note-gold)"/>
+  <rect x="30.2" y="14" width="4.4" height="33" rx="1.6" fill="url(#note-gold)"/>
+  <path d="M34.6 14 C46 12 54 16 54 24 C48 20 40 18 34.6 20 Z" fill="url(#note-gold)"/>
+</svg>
