@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="mask-blue" x1="10" y1="8" x2="34" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b8e4ff"/>
+      <stop offset="1" stop-color="#4aa8e0"/>
+    </linearGradient>
+    <linearGradient id="mask-gold" x1="30" y1="10" x2="56" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe27a"/>
+      <stop offset="1" stop-color="#e0b030"/>
+    </linearGradient>
+  </defs>
+  <path d="M34 16 C44 12 56 16 56 28 C56 42 48 52 40 54 C34 50 32 40 32 30 C32 22 32 18 34 16 Z" fill="url(#mask-gold)"/>
+  <ellipse cx="40.2" cy="28" rx="3.1" ry="3.6" fill="#5c3d12"/>
+  <ellipse cx="49.2" cy="28.6" rx="3.1" ry="3.6" fill="#5c3d12"/>
+  <path d="M39.5 40.5 C42.5 37.2 47.8 37.2 50.8 40.5" fill="none" stroke="#8a5a14" stroke-width="2.1" stroke-linecap="round"/>
+  <path d="M8 14 C20 8 34 12 34 26 C34 40 26 52 18 54 C10 50 8 38 8 28 C8 20 8 16 8 14 Z" fill="url(#mask-blue)"/>
+  <ellipse cx="16.2" cy="26.5" rx="3.2" ry="3.8" fill="#1e4a72"/>
+  <ellipse cx="25.4" cy="26.5" rx="3.2" ry="3.8" fill="#1e4a72"/>
+  <path d="M15.4 38.2 C18.6 42.6 24.2 42.6 27.4 38.2" fill="none" stroke="#1e4a72" stroke-width="2.2" stroke-linecap="round"/>
+</svg>
